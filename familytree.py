@@ -72,8 +72,8 @@ def solution(instance):
     E = L | { (v,u) for (u,v) in L }
     newCards = []
 
-    D = distanceClassesP(V, E, 'Bob')
-    
+    D = distanceClassesP(V, E, testData[1])
+
     for person in V:
         personCard = getCard(person)
         for key, value in D[1].items():
@@ -85,12 +85,11 @@ def solution(instance):
                     if newCard not in newCards:
                         newCards.append(newCard)
             elif value == personCard['Name']:
-                # if person your searching for is value, update the key card
+                # If person your searching for is value, update the key card
                 cardToChange = getCard(key)
                 newCard = addStarTo(cardToChange, value)
                 if newCard not in newCards:
                     newCards.append(newCard)
-
     return newCards
 
 # Helper function that gets dictionary of a person
@@ -113,7 +112,6 @@ def addStarTo(card, name):
         if newChildArray:
             for i in range(len(newChildArray)):
                 if (newChildArray[i] == name):
-                    # Add * to recognise relation to bob
                     newChildArray[i] = "*" + name
             resultCard['Children'] = newChildArray
     return resultCard
