@@ -1,4 +1,4 @@
-# breadth-first-search
+# CAB203 Breath First Search Problem
 CAB203 problem that uses breadth first search to caculate minimum distance from one person to every other person in a family tree. 
 
 ## Problem Description
