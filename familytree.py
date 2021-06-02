@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 
 testData = (
+    # Dictionaries were stored in list instead of set as Python doesn't allow dictionaries in sets
     [
         {"Name": 'Alice', "Father": "Arlo", "Mother": "Madeline", "Children": []},
         {"Name": 'Bob', "Father": "Charlie", "Mother": "Eve", "Children": []},
