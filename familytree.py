@@ -33,16 +33,15 @@ def formatCardData(testData):
                     useableData.add((card['Name'], value))
 
     # Data will be formated like ({('Bob', 'Charlie'), ('Bob', 'Eve'),...}, 'Bob')
-    # Make sure to add 'bob' to instance (testData[1])
     formattedData = (useableData, testData[1])
 
     return formattedData;
 
-# vertices connected by an edge from S.
+# From graphys.py obtained from CAB203 Blackboard
 def NS_out(V, E, S):
     return { v for v in V for u in S if (u,v) in E }
 
-# vertices connected by an edge to u
+# From graphys.py obtained from CAB203 Blackboard
 def N_in(V, E, u):
    return { v for v in V if (v,u) in E }
 
@@ -60,14 +59,15 @@ def distanceClassesP(V, E, u):
 # From graphys.py obtained from CAB203 Blackboard
 def distanceClassesPR(V, E, D, parent):
     Vnew = V - D[-1]                          # V_{j} = V_{j-1} / D_{j-1}
-    if len(Vnew) == 0: return D, parent       # All done?
+    if len(Vnew) == 0: 
+        return D, parent                      # All done?
     Dnew = D + [ NS_out(Vnew, E, D[-1]) ]     # D_{j} = N_{V_j}(D_{j-1})
     if len(Dnew[-1]) == 0: return D, parent   # No more neighbours, graph is disconnected
     for v in Dnew[-1]:
       parent[v] = arbitraryElement(N_in(D[-1], E, v))
     return distanceClassesPR(Vnew, E, Dnew, parent)
 
-def solution(instance):
+def solve(instance):
     (L, s) = instance
     V = { u for (u,v) in L } | { v for (u,v) in L }
     E = L | { (v,u) for (u,v) in L }
@@ -103,7 +103,7 @@ def getCard(name):
 def addStarTo(card, name):
     resultCard = card
     if (name in card.values()):
-        # Name must be Father or Mother
+        # Name to be changed must be Father or Mother
         for key, value in card.items():
             if (value == name and name != testData[1]):
                 resultCard[key] = "*" + name
@@ -120,7 +120,7 @@ def addStarTo(card, name):
 def printSolution(solution):
     newCards = solution
     print("Updated Family Tree Cards:")
-    print("+--------------------+")
+    print("--------------------")
     for card in newCards:
         for key, value in card.items():
             if key == "Children":
@@ -128,6 +128,6 @@ def printSolution(solution):
                 print(*value)
             else:
                 print (f"{key}: {value}")
-        print("+--------------------------+")
+        print("--------------------------")
         
-printSolution(solution(formatCardData(testData)))
+printSolution(solve(formatCardData(testData)))
