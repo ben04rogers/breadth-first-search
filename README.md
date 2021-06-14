@@ -14,3 +14,6 @@ Bob  realises  that  there  may  be  more  than  one  relationship  between  him
 Help Bob to create his simplified family tree:  given the complete family tree, find a simplified tree where there is a unique way of relating Bob to each other person, and that relationship is most direct among all possible relationships in the complete family tree.
 
 Bob’s family tree is in the form of cards.  Each card lists a person’s name, father, mother, and children (plusother information such as date of birth that we can ignore here.)  Bob would like to have new cards that show the same information, but have a * in front of the names of people where the relationship needs to bemarked.  For example, on Alice’s card, Alice’s father’s name will have a * in front, and on Alice’s Father’scard there will be a * in front of Alice’s name.
+
+## Example of the tree that the algorithm produces
+![familytreeexample](https://user-images.githubusercontent.com/47819009/121829198-31dc8c00-cd05-11eb-8363-8deac9343f18.PNG)
