@@ -37,26 +37,21 @@ def formatCardData(testData):
 
     return formattedData;
 
-# From graphys.py obtained from CAB203 Blackboard
 def NS_out(V, E, S):
     return { v for v in V for u in S if (u,v) in E }
 
-# From graphys.py obtained from CAB203 Blackboard
 def N_in(V, E, u):
    return { v for v in V if (v,u) in E }
 
-# From graphys.py obtained from CAB203 Blackboard
 def arbitraryElement(S):
     return next(iter(S))
 
-# From graphys.py obtained from CAB203 Blackboard
 def distanceClassesP(V, E, u):
     V0 = V              # V_0 = V
     D = [ {u} ]         # D[0] = D_0 = {u}
     parent = { u: False }
     return distanceClassesPR(V0, E, D, parent)
 
-# From graphys.py obtained from CAB203 Blackboard
 def distanceClassesPR(V, E, D, parent):
     Vnew = V - D[-1]                          # V_{j} = V_{j-1} / D_{j-1}
     if len(Vnew) == 0: 
