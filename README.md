@@ -1,4 +1,4 @@
-# CAB203 Breath First Search Problem
+# CAB203 Breadth-first Search Problem
 CAB203 Distrete Structures assignment problem that uses breadth first search to calculate minimum distance from one person to every other person in a family tree. 
 
 ## Problem Description
